@@ -1,0 +1,15 @@
+# Local dev only. Each module gets its own database. They never share one.
+services:
+  factcheck-db:
+    image: postgres:17
+    environment: { POSTGRES_DB: factcheck, POSTGRES_USER: factcheck, POSTGRES_PASSWORD: dev }
+    ports: ["5433:5432"]
+  leaks-db:
+    image: postgres:17
+    environment: { POSTGRES_DB: leaks, POSTGRES_USER: leaks, POSTGRES_PASSWORD: dev }
+    ports: ["5434:5432"]
+  blobs:
+    image: minio/minio
+    command: server /data --console-address ":9001"
+    environment: { MINIO_ROOT_USER: dev, MINIO_ROOT_PASSWORD: devdevdev }
+    ports: ["9000:9000", "9001:9001"]

@@ -1,0 +1,10 @@
+[package]
+name = "leaks-api"
+version = "0.1.0"
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+api.workspace = true
+tokio.workspace = true
+zk.workspace = true

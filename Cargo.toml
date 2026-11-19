@@ -1,0 +1,16 @@
+[workspace]
+resolver = "3"
+members = ["crates/*", "services/*"]
+
+[workspace.package]
+edition = "2024"
+license = "MIT"
+
+[workspace.dependencies]
+axum = "0.8"
+hex = "0.4"
+serde = { version = "1", features = ["derive"] }
+sha2 = "0.11"
+tokio = { version = "1", features = ["macros", "rt-multi-thread", "net"] }
+zk = { path = "crates/zk" }
+api = { path = "crates/api" }
